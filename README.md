@@ -6,4 +6,12 @@
 
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-## Ссылки на проект!
+Адрес репозитория:https://github.com/dedal1982/react-mesto-api-full-gha
+
+## Ссылки на проект
+
+IP-адрес 158.160.103.82
+
+Frontend https://m-aldm.nomoredomainsrocks.ru
+
+Backend https://api.im-aldm.nomoredomainsrocks.ru
