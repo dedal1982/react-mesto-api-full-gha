@@ -5,7 +5,7 @@ const { ForbiddenError } = require('../errors/forbiddenError'); // 403
 const { NotFoundError } = require('../errors/notFoundError'); // 404
 
 const getCards = (req, res, next) => {
-  cardModel.find({})
+  cardModel.find({}).sort({ createdAt: -1 })
     .then((cards) => {
       res.status(200).send(cards);
     })

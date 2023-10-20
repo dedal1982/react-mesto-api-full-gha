@@ -109,15 +109,20 @@ const login = (req, res, next) => {
     .catch((err) => next(err));
 };
 
-const getCurrentUser = (req, res, next) => {
-  userModel.findById(req.user._id)
-    .then((user) => {
-      if (user) {
-        res.status(200).send({ data: userData(user) });
-      }
-    })
-    .catch(next);
-};
+const getCurrentUser = (req, res, next) => { 
+  userModel 
+    .findById(req.user._id) 
+    .then((user) => { 
+      if (!user) { 
+        next(new NotFoundError('Пользователь не найден')); 
+        return; 
+      } 
+      // Добавил действие по умолчанию: отправка данных пользователя 
+      res.status(200).send({ data: userData(user) }); 
+    }) 
+    .catch(next); 
+
+}; 
 
 module.exports = {
   getUsers,
