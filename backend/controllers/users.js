@@ -110,14 +110,14 @@ const login = (req, res, next) => {
 };
 
 const getCurrentUser = (req, res, next) => {
-   userModel.findById(req.user._id)
+  userModel.findById(req.user._id)
     .then((user) => {
       if (!user) {
         next(new NotFoundError('Пользователь не найден'));
         return;
       }
       res.status(200).send({
-        data: userData(user)
+        data: userData(user),
       });
     })
     .catch(next);
