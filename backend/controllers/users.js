@@ -12,7 +12,7 @@ const { NODE_ENV, SECRET_KEY } = process.env;
 const getUsers = (req, res, next) => {
   userModel.find({})
     .then((users) => {
-      res.status(200).send({ data: users.map((user) => userData(user)) });
+      res.status(200).send({ data: users.map((user) => userData(user))});
     })
     .catch(next);
 };
@@ -109,15 +109,20 @@ const login = (req, res, next) => {
     .catch((err) => next(err));
 };
 
-const getCurrentUser = (req, res, next) => {
-  userModel.findById(req.user._id)
-    .then((user) => {
-      if (user) {
-        res.status(200).send({ data: userData(user) });
-      }
-    })
-    .catch(next);
-};
+const getCurrentUser = (req, res, next) => { 
+  userModel 
+    .findById(req.user._id) 
+    .then((user) => { 
+      if (!user) { 
+        next(new NotFoundError('Пользователь не найден')); 
+        return; 
+      } 
+      // Добавил действие по умолчанию: отправка данных пользователя 
+      res.status(200).send({ data: userData(user) }); 
+    }) 
+    .catch(next); 
+
+}; 
 
 module.exports = {
   getUsers,
