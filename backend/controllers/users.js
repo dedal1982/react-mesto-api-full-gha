@@ -12,7 +12,7 @@ const { NODE_ENV, SECRET_KEY } = process.env;
 const getUsers = (req, res, next) => {
   userModel.find({})
     .then((users) => {
-      res.status(200).send({ data: users.map((user) => userData(user))});
+      res.status(200).send({ data: users.map((user) => userData(user)) });
     })
     .catch(next);
 };
