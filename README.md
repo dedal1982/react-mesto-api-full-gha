@@ -10,8 +10,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.103.82
+IP 158.160.103.82
 
-Frontend https://m-aldm.nomoredomainsrocks.ru
+Frontend https://im-aldm.nomoredomainsrocks.ru
 
 Backend https://api.im-aldm.nomoredomainsrocks.ru
